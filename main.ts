@@ -4,14 +4,16 @@ input.onButtonPressed(Button.A, function () {
 function end () {
     music.startMelody(music.builtInMelody(Melodies.PowerDown), MelodyOptions.OnceInBackground)
     basic.showNumber(points)
-    basic.pause(3500)
+    basic.pause(2000)
     basic.clearScreen()
     start()
 }
 function play () {
-    hand = randint(1, 3)
     music.playTone(440, music.beat(BeatFraction.Half))
+    hand = randint(1, 3)
     displays()
+    basic.pause(2000)
+    basic.clearScreen()
 }
 input.onButtonPressed(Button.AB, function () {
     end()
@@ -32,6 +34,7 @@ function start () {
     points = 0
     basic.showString("PLAY")
     basic.showIcon(IconNames.Happy)
+    music.playTone(880, music.beat(BeatFraction.Quarter))
     basic.showLeds(`
         . . . . .
         . # . . .
