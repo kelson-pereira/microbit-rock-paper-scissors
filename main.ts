@@ -27,9 +27,6 @@ input.onButtonPressed(Button.B, function () {
         basic.clearScreen()
     }
 })
-input.onGesture(Gesture.Shake, function () {
-    play()
-})
 function start () {
     music.startMelody(music.builtInMelody(Melodies.Funk), MelodyOptions.OnceInBackground)
     points = 0
