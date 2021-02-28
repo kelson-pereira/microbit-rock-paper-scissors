@@ -33,7 +33,7 @@ function play () {
 input.onButtonPressed(Button.AB, function () {
     music.startMelody(music.builtInMelody(Melodies.PowerDown), MelodyOptions.OnceInBackground)
     basic.showNumber(points)
-    basic.pause(2000)
+    basic.pause(5000)
     basic.clearScreen()
     start()
 })
