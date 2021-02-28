@@ -3,6 +3,8 @@ input.onButtonPressed(Button.A, function () {
 })
 function end () {
     music.startMelody(music.builtInMelody(Melodies.PowerDown), MelodyOptions.OnceInBackground)
+    basic.showNumber(points)
+    basic.pause(3500)
     basic.clearScreen()
     start()
 }
@@ -16,13 +18,14 @@ input.onButtonPressed(Button.AB, function () {
 })
 input.onButtonPressed(Button.B, function () {
     points = points + 1
-    music.playTone(523, music.beat(BeatFraction.Quarter))
-    basic.showNumber(points)
-    basic.pause(200)
     if (points == 10) {
         end()
+    } else {
+        music.playTone(523, music.beat(BeatFraction.Quarter))
+        basic.showNumber(points)
+        basic.pause(200)
+        basic.clearScreen()
     }
-    basic.clearScreen()
 })
 input.onGesture(Gesture.Shake, function () {
     play()
@@ -70,6 +73,6 @@ function displays () {
             `)
     }
 }
-let points = 0
 let hand = 0
+let points = 0
 start()
