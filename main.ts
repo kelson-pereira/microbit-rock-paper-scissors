@@ -1,5 +1,8 @@
 let hand = 0
-input.onGesture(Gesture.Shake, function () {
+input.onButtonPressed(Button.A, function () {
+    play()
+})
+function play () {
     hand = randint(1, 3)
     if (hand == 1) {
         basic.showLeds(`
@@ -27,4 +30,7 @@ input.onGesture(Gesture.Shake, function () {
             `)
     }
     music.playTone(440, music.beat(BeatFraction.Half))
+}
+input.onGesture(Gesture.Shake, function () {
+    play()
 })
