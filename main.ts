@@ -30,6 +30,7 @@ input.onButtonPressed(Button.B, function () {
 })
 function show () {
     if (hand == 1) {
+        // rock
         basic.showLeds(`
             . . . . .
             . # # # .
@@ -38,6 +39,7 @@ function show () {
             . . . . .
             `)
     } else if (hand == 2) {
+        // paper
         basic.showLeds(`
             # # # # #
             # . . . #
@@ -46,6 +48,7 @@ function show () {
             # # # # #
             `)
     } else {
+        // scissors
         basic.showLeds(`
             # # . . #
             # # . # .
