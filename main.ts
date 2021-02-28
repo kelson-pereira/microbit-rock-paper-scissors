@@ -1,41 +1,24 @@
 input.onButtonPressed(Button.A, function () {
     play()
 })
-function play () {
-    hand = randint(1, 3)
-    music.playTone(440, music.beat(BeatFraction.Half))
-    if (hand == 1) {
-        basic.showLeds(`
-            . . . . .
-            . # # # .
-            . # # # .
-            . # # # .
-            . . . . .
-            `)
-    } else if (hand == 2) {
-        basic.showLeds(`
-            # # # # #
-            # . . . #
-            # . . . #
-            # . . . #
-            # # # # #
-            `)
-    } else {
-        basic.showLeds(`
-            # # . . #
-            # # . # .
-            . . # . .
-            # # . # .
-            # # . . #
-            `)
-    }
-}
-input.onButtonPressed(Button.AB, function () {
+function end () {
     music.startMelody(music.builtInMelody(Melodies.PowerDown), MelodyOptions.OnceInBackground)
     basic.showNumber(points)
     basic.pause(5000)
     basic.clearScreen()
     start()
+}
+function play () {
+    hand = randint(1, 3)
+    music.playTone(440, music.beat(BeatFraction.Half))
+    if (points == 10) {
+        end()
+    } else {
+        displays()
+    }
+}
+input.onButtonPressed(Button.AB, function () {
+    end()
 })
 input.onButtonPressed(Button.B, function () {
     points = points + 1
@@ -63,6 +46,33 @@ function start () {
     basic.pause(200)
     basic.clearScreen()
 }
-let points = 0
+function displays () {
+    if (hand == 1) {
+        basic.showLeds(`
+            . . . . .
+            . # # # .
+            . # # # .
+            . # # # .
+            . . . . .
+            `)
+    } else if (hand == 2) {
+        basic.showLeds(`
+            # # # # #
+            # . . . #
+            # . . . #
+            # . . . #
+            # # # # #
+            `)
+    } else {
+        basic.showLeds(`
+            # # . . #
+            # # . # .
+            . . # . .
+            # # . # .
+            # # . . #
+            `)
+    }
+}
 let hand = 0
+let points = 0
 start()
