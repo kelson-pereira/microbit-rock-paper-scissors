@@ -41,8 +41,8 @@ function show () {
     } else if (hand == 2) {
         // paper
         basic.showLeds(`
-            # # # # #
-            # . . . #
+            # # # # .
+            # . . # #
             # . . . #
             # . . . #
             # # # # #
