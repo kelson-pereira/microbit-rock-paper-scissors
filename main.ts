@@ -58,6 +58,12 @@ function show () {
             `)
     }
 }
+input.onLogoEvent(TouchButtonEvent.Pressed, function () {
+    music.playTone(523, music.beat(BeatFraction.Quarter))
+    basic.showNumber(points)
+    basic.pause(200)
+    basic.clearScreen()
+})
 function start () {
     music.startMelody(music.builtInMelody(Melodies.Funk), MelodyOptions.OnceInBackground)
     points = 0
